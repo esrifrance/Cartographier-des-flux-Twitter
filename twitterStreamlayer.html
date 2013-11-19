@@ -1,0 +1,423 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9,IE=10">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>StreamLayer - API JavaScript</title>
+    <link rel="stylesheet" href="http://js.arcgis.com/3.6/js/dojo/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.6/js/esri/css/esri.css">
+    <style type="text/css">
+      html, body {
+        height: 100%; width: 100%;
+        margin: 0; padding: 0;
+      }
+      body{
+        background-color: #fff; overflow:hidden;
+        font-family: sans-serif;
+      }
+      #map {
+        width: 100%;
+        height: 100%;
+		z-index:0;
+      }
+	  	  
+	#panneau1 { 
+		position: absolute; 
+		right: 10px;
+		width: 160px; 
+		top: 5px;
+		z-index:2;
+		vertical-align: middle;
+		text-align: center;
+		} 
+	
+	#panneau2 { 
+		position: absolute; 
+		right: 10px;
+		width: 160px; 
+		top: 5px;
+		z-index:1;
+		vertical-align: middle;
+		text-align: center;
+		} 
+	
+	#compteur{
+		position: absolute;
+		background: #61C8F4;
+		background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#61C8F4));
+		background: -webkit-linear-gradient(top, #3e779d, #61C8F4);
+		background: -moz-linear-gradient(top, #3e779d, #61C8F4);
+		background: -ms-linear-gradient(top, #3e779d, #61C8F4);
+		background: -o-linear-gradient(top, #3e779d, #61C8F4);
+		padding: 10px 10px;
+		-webkit-border-radius: 24px;
+		-moz-border-radius: 24px;
+		border-radius: 24px;
+		-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+		-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+		box-shadow: rgba(0,0,0,1) 0 1px 0;
+		text-shadow: rgba(0,0,0,.4) 0 1px 0;
+		width: 140px;
+		z-index: 2;
+		text-align: center;
+		font-weight: bold;
+		font-size: 17px;
+		font-family: Helvetica, Arial, Sans-Serif;
+		color:white;
+	}
+	
+	#cpttweet{
+		font-size: 45px;
+	}
+	
+	#logo:active{
+		height: 80px;
+		width: 75px;
+	}
+	
+	#logo2{
+		opacity: 0.5;
+	}
+	
+	#logo2:hover{
+		opacity: 1;
+	}
+	
+	#logo2:active{
+		height: 80px;
+		width: 75px;
+	}
+	
+	#clear{
+		position: absolute;
+		top: 167px;
+		z-index: 2;
+	}
+	
+	#cmdClear {
+		border-top: 1px solid #96d1f8;
+		background: #61C8F4;
+		background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#61C8F4));
+		background: -webkit-linear-gradient(top, #3e779d, #61C8F4);
+		background: -moz-linear-gradient(top, #3e779d, #61C8F4);
+		background: -ms-linear-gradient(top, #3e779d, #61C8F4);
+		background: -o-linear-gradient(top, #3e779d, #61C8F4);
+		padding: 2px 6px;
+		-webkit-border-radius: 24px;
+		-moz-border-radius: 24px;
+		border-radius: 24px;
+		-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+		-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+		box-shadow: rgba(0,0,0,1) 0 1px 0;
+		text-shadow: rgba(0,0,0,.4) 0 1px 0;
+		color: white;
+		font-size: 10px;
+		font-family: Helvetica, Arial, Sans-Serif;
+		font-weight: bold;
+		font-style: italic;
+		text-decoration: none;
+		vertical-align: middle;
+		width: 90px;
+	}
+	
+	#cmdClear:hover {
+		border-top-color: #28597a;
+		background: #F65442;
+		color: white;
+		width: 105px;
+		font-size: 12px;
+	}
+	#cmdClear:active {
+		border-top-color: #F65442;
+		background: #F65442;
+		color: white;
+		width: 105px;
+		font-size: 12px;
+	}
+		
+	#foot{
+		position: absolute;
+		background: #61C8F4;
+		background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#61C8F4));
+		background: -webkit-linear-gradient(top, #3e779d, #61C8F4);
+		background: -moz-linear-gradient(top, #3e779d, #61C8F4);
+		background: -ms-linear-gradient(top, #3e779d, #61C8F4);
+		background: -o-linear-gradient(top, #3e779d, #61C8F4);
+		padding: 5px 12px;
+		-webkit-border-radius: 24px;
+		-moz-border-radius: 24px;
+		border-radius: 24px;
+		-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+		-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+		box-shadow: rgba(0,0,0,1) 0 1px 0;
+		text-shadow: rgba(0,0,0,.4) 0 1px 0;
+		z-index: 2;
+		bottom: 5px;
+		left: 35%;
+		right: 35%;
+		text-align: center;
+		font-weight: bold;
+		font-size: 16px;
+		font-family: Helvetica, Arial, Sans-Serif;
+		color:white;
+	}
+
+    </style>
+    <script src="http://js.arcgis.com/3.6/"></script>
+  </head>
+  <body class="tundra">
+      <div id="map">
+	  	<div id="panneau1">
+			<a href="#"><img id="logo" src="http://scm-l3.technorati.com/13/11/04/77503/twitter-icon.png?t=20131104100612" title="Masquer les informations" height="75px" width="70px"/></a>	
+				<div id="compteur">
+					<label id="cpttweet">0</label> 
+					<br>Tweet(s)<br>
+				</div>
+				<div id="clear">
+					<input type="button" id="cmdClear" value="Remise &agrave z&eacute;ro"/>
+				</div>
+		</div>
+		<div id="panneau2">
+			<a href="#"><img id="logo2" src="http://scm-l3.technorati.com/13/11/04/77503/twitter-icon.png?t=20131104100612" title="Afficher les informations" height="70px" width="65px"/></a>
+		</div>
+		<div id="foot">
+			<label id="foottweet" title="Dernier tweet publié">...</label> 
+		</div>
+  </body>
+
+  <script>
+      //Definition des variables
+	  var curTime = new Date();
+      var curTimeStamp = Date.parse(curTime.toUTCString());
+      var layerDefinition = {
+        "geometryType": "esriGeometryPoint",
+        "timeInfo": {
+          "startTimeField": null,
+          "endTimeField": null,
+          "trackIdField": "ID",
+          "timeReference": null,
+          "timeInterval": 0.01,
+          "timeIntervalUnits": "esriTimeUnitsSeconds",
+          "exportOptions": {
+           "useTime": true,
+           "timeDataCumulative": false,
+           "timeOffset": null,
+           "timeOffsetUnits": null
+          },
+          "hasLiveData": true
+         },
+		 
+		 //La définition des tweets en sortie du GeoEvent Processor doit comporter les champs suivants (cf twitter.xml)
+        "fields": [
+          {
+            name: "ID",
+            type: "esriFieldTypeInteger",
+            alias: "number"
+          },
+          {
+            name: "nom",
+            type: "esriFieldTypeString",
+            alias: "nom"
+          }, 
+{           name: "texte",
+            type: "esriFieldTypeString",
+            alias: "texte"
+          },     		  
+          {
+            name: "lieu",
+            type: "esriFieldTypeString",
+            alias: "lieu"
+          },
+		  {
+            name: "date",
+            type: "esriFieldTypeDate",
+            alias: "date"
+          }
+        ]
+      };
+		
+		document.getElementById("panneau2").style.display= 'none';
+		
+		//Masquer les informations
+		function masquer()
+		{
+    		document.getElementById("foot").style.display= 'none';
+    		document.getElementById("panneau1").style.display= 'none';
+			document.getElementById("clear").style.display= 'none';
+			document.getElementById("panneau2").style.display= 'block';
+		};
+		
+		//Afficher les informations
+		function afficher()
+		{
+    		document.getElementById("foot").style.display= 'block';
+    		document.getElementById("panneau1").style.display= 'block';
+			document.getElementById("clear").style.display= 'block';
+			document.getElementById("panneau2").style.display= 'none';
+		};
+		
+      var map, featureCollection, streamLayer;
+      require(["esri/map",
+		"esri/geometry/jsonUtils",
+        "esri/TimeExtent",
+		"esri/graphic",
+        "esri/layers/StreamLayer",
+        "esri/InfoTemplate",
+        "esri/symbols/PictureMarkerSymbol",
+        "esri/symbols/SimpleLineSymbol",
+        "esri/renderers/SimpleRenderer",
+        "esri/renderers/TimeClassBreaksAger",
+        "esri/renderers/TemporalRenderer",
+        "dojo/_base/Color",
+        "dojo/dom",
+        "dojo/on",
+        "dojo/domReady!"
+      ], 
+	  
+	  //Création de la carte
+	  function(Map, jsonUtils, TimeExtent, Graphic, StreamLayer, InfoTemplate, PictureMarkerSymbol, SimpleLineSymbol, SimpleRenderer, TimeClassBreaksAger, TemporalRenderer, Color, dom, on){
+          var trackedBusses = {}, cnt = 0;
+
+          map = new Map("map",{
+            basemap: "gray",
+            center: [0.00,  20.00],
+            zoom: 3,
+			autoResize: true,
+					
+          });
+		  
+          //Evenements au clic des boutons
+          on(dom.byId("cmdClear"), "click", ClearStreamLayer);
+		  on(dom.byId("logo"), "click", masquer);
+		  on(dom.byId("logo2"), "click", afficher);
+		  
+		  //Création de la Streamlayer au chargement de la carte
+		  map.on("load", makeNewStreamLayer);
+          
+		  
+		  function makeStreamLayer(){
+            //Déclaration d'une FeatureCollection pour la Streamlayer 
+            featureCollection = {
+            "layerDefinition": null,
+            "featureSet": {
+              "features": [],
+              "geometryType": "esriGeometryPoint"}
+            };
+            featureCollection.layerDefinition = layerDefinition;
+
+			//Déclaration de l'Infobulle
+			var myInfoTemplate = new esri.InfoTemplate();
+            myInfoTemplate.setTitle("Utilisateur: ${nom}");
+            myInfoTemplate.setContent( "<b>Texte: </b>${texte}<br/><br/>"
+                             + "<font size=1><i><b>Date: </b>${date}<br/>"
+							 + "<b>Lieu: </b>${lieu}</i></font><br/><br/>"
+										 );
+            var layer = new StreamLayer(featureCollection, {
+              //URL du WebSocket en sortie du GeoEvent Processor
+			  socketUrl: "ws://localhost:6180/ws",
+              purgeOptions: { displayCount: 2000 },
+              trackIdField: featureCollection.layerDefinition.timeInfo.trackIdField,
+              infoTemplate: myInfoTemplate});
+            console.log("TrackID: ", featureCollection.layerDefinition.timeInfo.trackIdField);
+            console.log("TrackID: ", layer.timeInfo.trackIdField);
+						
+
+            //Symbologie de la Streamlayer
+            var renderer = new SimpleRenderer(new PictureMarkerSymbol('http://esrifrance.maps.arcgis.com/sharing/rest/content/items/49b4b6c51aa9483ab242ae5817633706/data',20,20));
+            layer.setRenderer( renderer );
+
+         
+			layer.on("Connect", function() {
+			console.log("CONNECTED SOCKET: ", layer);
+			setTimeout(function() {
+				layer.socket.onmessage = function(e) {
+				//Analyser le message Json du WebSocket
+					var msgarray = JSON.parse(e.data);
+					msgarray = Array.isArray(msgarray) ? msgarray : [msgarray];
+					for (var i = 0; i < msgarray.length; i++){
+						//Gérer les Graphics
+						var jsonFeature = msgarray[i];
+						var graphic = new Graphic();
+						var geom = jsonUtils.fromJson(jsonFeature.shape);
+						graphic.setGeometry(geom);
+						graphic.setAttributes({"nom":jsonFeature.nom,"texte":jsonFeature.texte,"ID":jsonFeature.ID,"lieu":jsonFeature.lieu,"date":jsonFeature.date});
+
+			layer.graphics.forEach(function(g) {
+				if ( jsonFeature.ID == g.attributes["ID"] ){
+					layer.remove(g);
+				}
+			}); 
+			layer.add(graphic);
+
+
+					}
+
+			console.log("Nb features: ", layer.graphics.length);
+			console.log("map center: ", map.extent.getCenter());
+	
+			//Incrementation du compteur de tweet
+			document.getElementById("cpttweet").innerHTML = layer.graphics.length;
+			document.getElementById("foottweet").innerHTML = jsonFeature.texte;
+	
+	
+			if (featureCollection.layerDefinition.timeInfo && 
+                featureCollection.layerDefinition.timeInfo.startTimeField) {
+              var timestamp = graphic.attributes[featureCollection.layerDefinition.timeInfo.startTimeField];
+              if (! map.timeExtent){
+                map.setTimeExtent(new esri.TimeExtent(new Date(timestamp), new Date(timestamp)));
+                console.log("TIME EXTENT: ", map.timeExtent);
+              } else {
+                var tsEnd = Date.parse(map.timeExtent.endTime.toString());
+                if (timestamp > tsEnd){
+                  map.setTimeExtent(new esri.TimeExtent(map.timeExtent.startTime, new Date(timestamp)));
+                  console.log("TIME EXTENT: ", map.timeExtent);
+                }
+              }
+            }
+				};
+			}, 25);
+			});
+			layer.on("message", processMessage);
+            return layer;
+          }
+
+ 
+          // Gestion du message reçu par la Streamlayer
+          function processMessage(message){
+            if (featureCollection.layerDefinition.timeInfo && 
+                featureCollection.layerDefinition.timeInfo.startTimeField) {
+              var timestamp = message.graphic.attributes[featureCollection.layerDefinition.timeInfo.startTimeField];
+              if (! map.timeExtent){
+                map.setTimeExtent(new esri.TimeExtent(new Date(timestamp), new Date(timestamp)));
+                console.log("TIME EXTENT: ", map.timeExtent);
+              } else {
+                var tsEnd = Date.parse(map.timeExtent.endTime.toString());
+                if (timestamp > tsEnd){
+                  map.setTimeExtent(new esri.TimeExtent(map.timeExtent.startTime, new Date(timestamp)));
+                  console.log("TIME EXTENT: ", map.timeExtent);
+                }
+              }
+            }
+          }
+
+          //Faire une nouvelle Streamlayer et l'ajouter à la carte
+          function makeNewStreamLayer(){
+            ClearStreamLayer();
+            streamLayer = makeStreamLayer();
+            map.addLayer( streamLayer );
+          }
+
+          //Vidanger de la StreamLayer et réinitialiser le compteur 
+          function ClearStreamLayer(){
+            if (streamLayer){
+              streamLayer.clear();
+			  document.getElementById("cpttweet").innerHTML = 0;
+			  document.getElementById("foottweet").innerHTML="Remise à zéro effectuée";
+            }
+          }
+
+        });
+  </script>
+
+</html>
