@@ -7,7 +7,11 @@ Cette application permet de représenter le flux twitter récupéré par ArcGIS 
 
 Le connecteur Twitter pour ArcGIS GeoEvent Processor est disponible sur le Github Esri : https://github.com/Esri/twitter-for-geoevent
 
-Après installation du connecteur Twitter, vous devez créer une nouvelle définition pour la sortie afin de simplifier le message Twitter entrant qui est créé automatiquement. 
+  
+  
+  INSTRUCTIONS
+---------------------------------------------------------------------------------------------------------
+  <b>1</b>- Après installation du connecteur Twitter, vous devez créer une nouvelle définition pour la sortie afin de simplifier le message Twitter entrant qui est créé automatiquement. 
 La défintion en sortie des champs utilisés dans l'application est la suivante :
 
   <b>MyTweetDefinition</b>
@@ -42,16 +46,13 @@ La défintion en sortie des champs utilisés dans l'application est la suivante 
   Cardinality: One<br>
   Tags:TRACK_ID<br>
   
+  <b>2</b>- Créer l'Input "Receive Tweets"
   
-  INSTRUCTIONS
----------------------------------------------------------------------------------------------------------
-  <b>1</b>- Créer l'Input "Receive Tweets"
-  
-  <b>2</b>- Créer l'Output "Publish JSON to a Web Socket"
+  <b>3</b>- Créer l'Output "Publish JSON to a Web Socket"
   <br>URL WebSocket par défaut : <i>http://localhost:6180/ws
   </i>
   
-  <b>3</b>- Créer le service GeoEvent Processor "Twitter"
+  <b>4</b>- Créer le service GeoEvent Processor "Twitter"
   <br>Ajouter un filtre avec la condition attributaire <i>geolocated=true</i>
   <br>Ajouter un processus de type Mappage de champs et faire correspondre la définition en entrée (TweetStatus) avec la définition créée pour la sortie (MyTweetDefinition) :
   <i><br>$RECEIVED_TIME = date<br>
@@ -61,4 +62,4 @@ La défintion en sortie des champs utilisés dans l'application est la suivante 
   coordinates = shape <br>
   id_str = ID</i>
   
-  <b>4</b>- Editer le fichier <i>twitterStreamlayer.html</i> et assurez-vous que l'URL ligne 318 correspond votre WebSocket en sortie de GeoEvent Processor
+  <b>5</b>- Editer le fichier <i>twitterStreamlayer.html</i> et assurez-vous que l'URL ligne 318 correspond votre WebSocket en sortie de GeoEvent Processor
