@@ -1,9 +1,7 @@
 JS-Streamlayer---Twitter
 ========================
 
-***********************************************************
 Exemple : http://maps.esrifrance.fr/twitterStreamlayer.html
-***********************************************************
 
 Cette application permet de représenter le flux twitter récupéré par ArcGIS GeoEvent Processor dans une Streamlayer de l'API ArcGIS Javascript.
 
@@ -46,8 +44,8 @@ La défintion des champs utilisés dans l'application est la suivante :
   TRACK_ID
   
   
----------------------------------------------------------------------------------------------------------
   INSTRUCTIONS
 ---------------------------------------------------------------------------------------------------------
   1- Créer l'Input "Receive Tweets"
-  2- Créer l'Out
+  
+  2- Créer l'Output "Publish JSON to a Web Socket"
