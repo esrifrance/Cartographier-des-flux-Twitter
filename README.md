@@ -1,7 +1,9 @@
 JS-Streamlayer---Twitter
 ========================
 
+***********************************************************
 Exemple : http://maps.esrifrance.fr/twitterStreamlayer.html
+***********************************************************
 
 Cette application permet de représenter le flux twitter récupéré par ArcGIS GeoEvent Processor dans une Streamlayer de l'API ArcGIS Javascript.
 
