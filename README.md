@@ -12,7 +12,7 @@ Le connecteur Twitter pour ArcGIS GeoEvent Processor est disponible sur le Githu
   INSTRUCTIONS
 ---------------------------------------------------------------------------------------------------------
   <b>1</b>- Après installation du connecteur Twitter, vous devez créer une nouvelle définition pour la sortie afin de simplifier le message Twitter entrant qui est créé automatiquement. 
-La défintion en sortie des champs utilisés dans l'application est la suivante :
+La défintion des champs utilisée en sortie dans l'application est la suivante :
 
   <b>MyTweetDefinition</b>
 
