@@ -5,6 +5,8 @@ Exemple : http://maps.esrifrance.fr/twitterStreamlayer.html
 
 Cette application permet de cartographier le flux twitter récupéré par ArcGIS GeoEvent Processor dans une Streamlayer de l'API ArcGIS Javascript.
 
+L'architecture mise en place pour cette application est : Twitter -> ArcGIS Server/GeoEvent Processor -> Application Javascript
+
 Le connecteur Twitter pour ArcGIS GeoEvent Processor est disponible sur :
 <br>- Github Esri : https://github.com/Esri/twitter-for-geoevent
 <br>- ArcGIS Online : http://www.arcgis.com/home/item.html?id=041138094e5348eb902f4b71175eeb6f
