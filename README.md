@@ -63,4 +63,4 @@ La défintion des champs utilisée en sortie dans l'application est la suivante 
   coordinates = shape <br>
   id_str = ID</i>
   
-  <b>5</b>- Editer le fichier <i>twitterStreamlayer.html</i> et assurez-vous que l'URL ligne 318 correspond votre WebSocket en sortie de GeoEvent Processor
+  <b>5</b>- Editer le fichier <i>twitterStreamlayer.html</i> et assurez-vous que l'URL ligne 318 correspond à votre WebSocket en sortie de GeoEvent Processor
