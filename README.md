@@ -7,7 +7,7 @@ Cette application permet de cartographier le flux twitter récupéré par ArcGIS
 
 L'architecture mise en place pour cette application est : Twitter => ArcGIS Server/GeoEvent Processor => Application Javascript
 
-Le connecteur Twitter pour ArcGIS GeoEvent Processor est disponible sur le <a href="https://github.com/Esri/twitter-for-geoevent" target='_blank'>Github Esri</a>  ou sur <a href="http://www.arcgis.com/home/item.html?id=041138094e5348eb902f4b71175eeb6f" target='_blank'>ArcGIS Online</a> 
+Le connecteur Twitter pour ArcGIS GeoEvent Processor est téléchargeable sur le <a href="https://github.com/Esri/twitter-for-geoevent" target='_blank'>Github Esri</a>  ou sur <a href="http://www.arcgis.com/home/item.html?id=041138094e5348eb902f4b71175eeb6f" target='_blank'>ArcGIS Online</a> 
 
   
   INSTRUCTIONS
