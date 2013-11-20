@@ -1,7 +1,7 @@
 Cartographier-des-flux-Twitter
 ==============================
 
-Exemple : http://maps.esrifrance.fr/twitterStreamlayer.html
+Démonstration : http://maps.esrifrance.fr/twitterStreamlayer.html
 
 Cette application permet de cartographier le flux twitter récupéré par ArcGIS GeoEvent Processor dans une Streamlayer de l'API ArcGIS Javascript.
 
