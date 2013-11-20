@@ -10,8 +10,8 @@ L'architecture mise en place pour cette application est : Twitter => ArcGIS Serv
 Le connecteur Twitter pour ArcGIS GeoEvent Processor est téléchargeable sur le <a href="https://github.com/Esri/twitter-for-geoevent" target='_blank'>Github Esri</a>  ou sur <a href="http://www.arcgis.com/home/item.html?id=041138094e5348eb902f4b71175eeb6f" target='_blank'>ArcGIS Online</a> 
 
   
-  INSTRUCTIONS
----------------------------------------------------------------------------------------------------------
+Instructions
+============
   <b>1</b>- Après installation du connecteur Twitter, vous devez créer une nouvelle définition pour la sortie afin de simplifier le message Twitter entrant qui est créé automatiquement. 
 La défintion des champs utilisée en sortie dans l'application est la suivante :
 
