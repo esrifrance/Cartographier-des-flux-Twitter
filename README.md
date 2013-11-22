@@ -1,9 +1,9 @@
 Cartographier-des-flux-Twitter
 ==============================
 
-Démonstration : http://maps.esrifrance.fr/twitterStreamlayer.html
+==> Démonstration : http://maps.esrifrance.fr/twitterStreamlayer.html <==
 
-Cette application permet de cartographier le flux twitter récupéré par ArcGIS GeoEvent Processor dans une Streamlayer de l'API ArcGIS Javascript.
+Cette application permet de cartographier le flux twitter récupéré par <a href="http://www.esrifrance.fr/arcgis-geoevent-processor-for-server.aspx" target='_blank'>ArcGIS GeoEvent Processor for Server</a> dans une Streamlayer de l'API ArcGIS Javascript.
 
 L'architecture mise en place pour cette application est : Twitter => ArcGIS Server/GeoEvent Processor => Application Javascript
 
